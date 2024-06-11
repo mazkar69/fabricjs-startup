@@ -1,0 +1,45 @@
+
+canvas.renderAll();		//Refresh the canvas
+----------------------------------------------------------------
+=> shape 
+fabric.Circle
+fabric.Ellipse
+fabric.Line
+fabric.Polygon
+fabric.Polyline
+fabric.Rect
+fabric.Triangle
+------------------------------------------------------------------------
+calling setter method
+
+canvas.add(rect);
+rect.set('fill', 'red');
+rect.set({ strokeWidth: 5, stroke: 'rgba(100,200,200,0.5)' });
+rect.set('angle', 15).set('flipY', true);
+rect.set('selectable', false); // make object unselectable,| fabric.StaticCanvas. | check intractivity 
+----------------------------------------------------------------------------
+Canvas
+
+fabric.Canvas serves as a wrapper around <canvas> element.  We can add objects onto it, reference them off of it, or remove them:
+
+var canvas = new fabric.Canvas('c');		//We can pass the canvas property like width and backgroundColor.
+var rect = new fabric.Rect();
+
+canvas.add(rect); // add object
+
+canvas.item(0); // reference fabric.Rect added earlier (first object)
+canvas.getObjects(); // get all objects on canvas (rect will be first and only)
+
+canvas.remove(rect); // remove previously-added fabric.Rect
+
+canvas.getActiveObject()   	//Get current active object.
+
+----------------------------------------------------------------------------
+
+Event
+
+var canvas = new fabric.Canvas('...');
+canvas.on('mouse:down', function(options) {
+  console.log(options.e.clientX, options.e.clientY);
+});
+
